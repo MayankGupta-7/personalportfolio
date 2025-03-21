@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            scroll-behavior: smooth;
+        }
+        section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-in-out;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #home {
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+        }
+        #about {
+            background: linear-gradient(45deg, #a18cd1, #fbc2eb);
+        }
+        #projects {
+            background: linear-gradient(45deg, #fda085, #f6d365);
+        }
+        #contact {
+            background: linear-gradient(45deg, #84fab0, #8fd3f4);
+            color: black;
+        }
+        .projects-container a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+            transition: color 0.3s;
+        }
+        .projects-container a:hover {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home" class="scroll-animate">
+        <div class="hero">
+            <h1>Hi, I'm <span>Mayank Gupta</span></h1>
+            <p>A passionate <span>Web Developer</span> crafting beautiful experiences.</p>
+        </div>
+    </section>
+    
+    <section id="about" class="scroll-animate">
+        <h2>About Me</h2>
+        <p>I'm a creative front-end developer who loves designing engaging web experiences.</p>
+    </section>
+    
+    <section id="projects" class="scroll-animate">
+        <h2>Projects</h2>
+        <div class="projects-container">
+            <div class="project">
+                <h3>Weather-Detection</h3>
+                <p>This projects will help you to know about the use of API and a real time Weather detection .</p>
+                <a href="https://github.com/MayankGupta-7/Weather-Detection-responsive" target="_blank">View Project</a>
+            </div>
+            <div class="project">
+                <h3>Dashboard</h3>
+                <p>It will help you to understand and create an interactive Dashboard  .</p>
+                <a href="https://github.com/MayankGupta-7/Dashboard" target="_blank">View Project</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="scroll-animate">
+        <h2>Contact</h2>
+        <p>Email: mayankg10010@gmail.com</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </section>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll("section");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
